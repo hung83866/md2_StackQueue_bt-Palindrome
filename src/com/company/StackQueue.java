@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.PriorityQueue;
-import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 public class StackQueue {
 
@@ -13,17 +11,17 @@ public class StackQueue {
         String str = scanner.next();
         boolean check = true;
         Stack stack = new Stack<>();
-        PriorityQueue queue = new PriorityQueue();
+        Queue<Character> strings = new LinkedList<>();
+
         for (int i = 0; i < str.length(); i++) {
             stack.push(str.charAt(i));
+            strings.offer(str.charAt(i));
         }
-        for (int i = str.length()-1; i >=0; i--) {
-            queue.add(str.charAt(i));
-        }
+
         System.out.println("stack = "+stack);
-        System.out.println("queue = "+queue);
+        System.out.println("queue = "+strings);
         for (int i = 0; i < str.length(); i++) {
-            if (stack.pop()==queue.remove()){
+            if (stack.pop()==strings.poll()){
                 check = true;
             }else check = false;
         }
